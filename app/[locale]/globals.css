@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply min-h-screen w-full overflow-x-hidden bg-gray-50 box-border text-darkGray text-lg;  
+  }
+
+section {
+    @apply h-screen w-full pt-28 overflow-hidden;
+}
+
+/* px-10 lg:px-28 */
