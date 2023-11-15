@@ -1,9 +1,10 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { notFound } from "next/navigation";
 import { unstable_setRequestLocale } from "next-intl/server";
 import Navbar from "./components/global-components/navbar";
+import Footer from "./components/global-components/footer";
 
 const locales = ["en", "pl"];
 
@@ -24,11 +25,20 @@ export default function LocaleLayout({ children, params: { locale } }) {
   if (!isValidLocale) notFound();
   unstable_setRequestLocale(locale);
 
+  const t = useTranslations("Navbar");
+
   return (
     <html lang={locale}>
       <body className={inter.className}>
-        <Navbar />
+        <Navbar
+          start={t("start")}
+          about={t("about")}
+          projects={t("projects")}
+          news={t("news")}
+          contact={t("contact")}
+        />
         {children}
+        <Footer />
       </body>
     </html>
   );

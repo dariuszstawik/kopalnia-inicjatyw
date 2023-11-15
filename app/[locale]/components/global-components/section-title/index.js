@@ -5,9 +5,9 @@ export default function SectionTitle({ children, isWhite, isAlignedLeft }) {
         !isAlignedLeft && "justify-center items-center"
       } gap-2`}
     >
-      <p className={`${isWhite ? "text-white" : "text-darkGray"} text-lg my-0`}>
+      {/* <p className={`${isWhite ? "text-white" : "text-darkGray"} text-lg my-0`}>
         Green Leaf Power
-      </p>
+      </p> */}
       <h2
         className={`${isAlignedLeft ? "text-left" : "text-center"} ${
           isWhite && "text-white"
@@ -17,8 +17,8 @@ export default function SectionTitle({ children, isWhite, isAlignedLeft }) {
         {children}
       </h2>
       <div
-        className={`mt-4 w-28 h-1 rounded-sm ${
-          isWhite ? "bg-primaryGreen" : "bg-primaryGreen"
+        className={`mt-2 w-28 h-1 rounded-sm -rotate-3 ${
+          isWhite ? "bg-primaryBlue" : "bg-primaryBlue"
         }`}
       />
     </div>

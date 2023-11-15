@@ -1,35 +1,35 @@
 const navbarData = [
   {
     id: 1,
-    title: "Start",
+    title: "start",
     path: "/",
     button: false,
   },
 
   {
     id: 2,
-    title: "O nas",
+    title: "about",
     path: "/o-nas",
     button: false,
   },
 
   {
     id: 3,
-    title: "Projekty",
+    title: "projects",
     path: "/projekty",
     button: false,
   },
 
   {
     id: 4,
-    title: "Aktualności",
+    title: "news",
     path: "/aktualnosci",
     button: false,
   },
 
   {
     id: 5,
-    title: "Kontakt",
+    title: "kontakt",
     path: "/kontakt",
     button: true,
   },

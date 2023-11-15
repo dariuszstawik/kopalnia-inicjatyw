@@ -7,7 +7,7 @@ import Hamburger from "../hamburger";
 import { usePathname, useSearchParams } from "next/navigation";
 import Logo from "../Logo";
 
-const Navbar = () => {
+const Navbar = ({ isActive, start, about, projects, news, contact }) => {
   const [isMobileMenuActive, setIsMobileMenuActive] = useState(false);
 
   const pathname = usePathname();
@@ -21,7 +21,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="border-b-2 border-b-gray-100 text-xl antialiased fixed w-screen h-28 flex justify-between items-center px-10 lg:px-16 py-4 bg-darkGray top-0 left-0 z-50">
+    <div className="text-xl antialiased fixed w-screen h-28 flex justify-between items-center px-10 lg:px-16 py-4 bg-darkGray top-0 left-0 z-50 border-y-4 border-white">
       <Logo closeMobileMenu={closeMobileMenu} />
       <div className="pl-16 w-full flex justify-end content-center items-center gap-6">
         <ul
@@ -31,7 +31,51 @@ const Navbar = () => {
               : " list-none flex-col justify-center align-center items-center gap-10 lg:flex-row my-4 hidden lg:flex lg:justify-end ml-4"
           }
         >
-          {navbarData.map((nav) => {
+          <li
+            onClick={closeMobileMenu}
+            className="text-lg text-white hover:text-slate-500 cursor-pointer"
+          >
+            <Link href="/" className={`${isActive && "text-primaryGreen"}`}>
+              {start}
+            </Link>
+          </li>
+
+          <li
+            onClick={closeMobileMenu}
+            className="text-lg text-white hover:text-slate-500 cursor-pointer"
+          >
+            <Link href="/" className={`${isActive && "text-primaryGreen"}`}>
+              {about}
+            </Link>
+          </li>
+
+          <li
+            onClick={closeMobileMenu}
+            className="text-lg text-white hover:text-slate-500 cursor-pointer"
+          >
+            <Link href="/" className={`${isActive && "text-primaryGreen"}`}>
+              {projects}
+            </Link>
+          </li>
+
+          <li
+            onClick={closeMobileMenu}
+            className="text-lg text-white hover:text-slate-500 cursor-pointer"
+          >
+            <Link href="/" className={`${isActive && "text-primaryGreen"}`}>
+              {news}
+            </Link>
+          </li>
+          <li
+            onClick={closeMobileMenu}
+            className="text-lg text-white hover:text-slate-500 cursor-pointer"
+          >
+            <Link href="/" className={`${isActive && "text-primaryGreen"}`}>
+              {contact}
+            </Link>
+          </li>
+
+          {/* {navbarData.map((nav) => {
             const isActive = pathname === nav.path;
 
             return (
@@ -40,7 +84,7 @@ const Navbar = () => {
                 key={nav.id}
                 className={`${
                   nav.button ? "text-base" : "text-lg"
-                } text-slate-700 hover:text-slate-900 cursor-pointer ${
+                } text-white hover:text-slate-900 cursor-pointer ${
                   isActive && "text-primaryGreen"
                 }}`}
               >
@@ -48,11 +92,12 @@ const Navbar = () => {
                   href={nav.path}
                   className={`${isActive && "text-primaryGreen"}`}
                 >
-                  {/* {nav.button ? <Button>{nav.title}</Button> : nav.title} */}
+                  {nav.title}
                 </Link>
               </li>
             );
           })}
+        </ul> */}
         </ul>
         <Hamburger
           hasCloseIcon={isMobileMenuActive ? true : false}

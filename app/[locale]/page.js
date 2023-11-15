@@ -5,6 +5,9 @@ import HomePageAboutSection from "./components/main-page/homepage-about-section"
 import { client } from "@/lib/contentful/client";
 import ParagraphWithImageOnTheLeft from "./components/global-components/paragraph-with-image-on-the-left";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import HomepageProjectsSection from "./components/main-page/homepage-projects-section";
+import HomepageNewsSection from "./components/main-page/homepage-news-section";
+import PartnersSection from "./components/main-page/partners-section";
 
 async function getContentfulContent(locale) {
   const resHomepageAboutSection = await client.getEntries({
@@ -12,7 +15,26 @@ async function getContentfulContent(locale) {
     locale: locale,
   });
 
-  return { homepageAboutSection: resHomepageAboutSection.items };
+  const resNews = await client.getEntries({
+    content_type: "news",
+    locale: locale,
+  });
+
+  const resProjects = await client.getEntries({
+    content_type: "project",
+    locale: locale,
+  });
+  const resPartners = await client.getEntries({
+    content_type: "partners",
+    locale: locale,
+  });
+
+  return {
+    homepageAboutSection: resHomepageAboutSection.items,
+    news: resNews.items,
+    projects: resProjects.items,
+    partners: resPartners.items,
+  };
 }
 
 export default async function Home({ params: { locale } }) {
@@ -20,10 +42,12 @@ export default async function Home({ params: { locale } }) {
 
   const homepageAboutSection = (await getContentfulContent(locale))
     .homepageAboutSection[0].fields;
-  console.log(homepageAboutSection);
 
-  // const t = await useTranslations("Index");
-  // const t = await getTranslator("index");
+  const newsPosts = (await getContentfulContent(locale)).news;
+
+  const projects = (await getContentfulContent(locale)).projects;
+
+  const partners = (await getContentfulContent(locale)).partners;
 
   return (
     <>
@@ -40,6 +64,9 @@ export default async function Home({ params: { locale } }) {
       >
         {documentToReactComponents(homepageAboutSection.content)}
       </ParagraphWithImageOnTheLeft>
+      <HomepageProjectsSection projects={projects} />
+      <HomepageNewsSection newsPosts={newsPosts} locale={locale} />
+      <PartnersSection partners={partners} />
     </>
   );
 }
