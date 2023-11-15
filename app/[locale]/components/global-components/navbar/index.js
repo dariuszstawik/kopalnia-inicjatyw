@@ -1,8 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import navbarData from "./navbarData";
-// import Button from "../button";
 import Hamburger from "../hamburger";
 import { usePathname, useSearchParams } from "next/navigation";
 import Logo from "../Logo";
@@ -74,30 +72,6 @@ const Navbar = ({ isActive, start, about, projects, news, contact }) => {
               {contact}
             </Link>
           </li>
-
-          {/* {navbarData.map((nav) => {
-            const isActive = pathname === nav.path;
-
-            return (
-              <li
-                onClick={closeMobileMenu}
-                key={nav.id}
-                className={`${
-                  nav.button ? "text-base" : "text-lg"
-                } text-white hover:text-slate-900 cursor-pointer ${
-                  isActive && "text-primaryGreen"
-                }}`}
-              >
-                <Link
-                  href={nav.path}
-                  className={`${isActive && "text-primaryGreen"}`}
-                >
-                  {nav.title}
-                </Link>
-              </li>
-            );
-          })}
-        </ul> */}
         </ul>
         <Hamburger
           hasCloseIcon={isMobileMenuActive ? true : false}
