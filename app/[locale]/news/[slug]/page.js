@@ -2,13 +2,13 @@ import { client } from "@/lib/contentful/client";
 import SingleArticle from "../../components/global-components/single-article";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-export async function generateStaticParams() {
-  const res = await client.getEntries({ content_type: "news" });
+// export async function generateStaticParams() {
+//   const res = await client.getEntries({ content_type: "news" });
 
-  return res.items.map((post) => ({
-    slug: post.slug,
-  }));
-}
+//   return res.items.map((post) => ({
+//     slug: post.slug,
+//   }));
+// }
 
 async function getContentfulNewsPosts(slug, locale) {
   const resNewsPosts = await client.getEntries({
