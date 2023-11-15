@@ -1,5 +1,3 @@
-// import PageHeader from "@/app/components/global-components/page-header";
-
 import { client } from "@/lib/contentful/client";
 import SingleArticle from "../../components/global-components/single-article";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -29,12 +27,7 @@ export default async function NewsPost({ params }) {
 
   return (
     <>
-      {/* <Head>
-        <title>{newsPost.fields.title}: Green Leaf Power</title>
-        <meta name="description" content={newsPost.fields.lead} />
-      </Head> */}
       <div>
-        {/* <PageHeader>Aktualności</PageHeader> */}
         <SingleArticle
           title={newsPost.fields.title}
           lead={newsPost.fields.lead}
