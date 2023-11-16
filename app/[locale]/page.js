@@ -32,7 +32,7 @@ async function getContentfulContent(locale) {
 
   return {
     homepageAboutSection: resHomepageAboutSection.items,
-    news: resNews.items,
+    // news: resNews.items,
     projects: resProjects.items,
     partners: resPartners.items,
   };
