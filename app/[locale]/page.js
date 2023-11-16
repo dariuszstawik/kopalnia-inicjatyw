@@ -8,7 +8,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import HomepageProjectsSection from "./components/main-page/homepage-projects-section";
 import HomepageNewsSection from "./components/main-page/homepage-news-section";
 import PartnersSection from "./components/main-page/partners-section";
-import locales from "..";
+// import locales from "..";
 
 async function getContentfulContent(locale) {
   const resHomepageAboutSection = await client.getEntries({
