@@ -1,12 +1,16 @@
 /** @type {import('next').NextConfig} */
-// const withNextIntl = require("next-intl/plugin")();
+const withNextIntl = require("next-intl/plugin")();
 
-const nextConfig = {
+// const nextConfig = {
+//   images: {
+//     domains: ["localhost:3000", "images.ctfassets.net"],
+//   },
+// };
+
+// module.exports = withNextIntl(nextConfig);
+
+module.exports = withNextIntl({
   images: {
     domains: ["localhost:3000", "images.ctfassets.net"],
   },
-};
-
-const withNextIntl = require("next-intl/plugin")("./i18n.js");
-
-module.exports = withNextIntl(nextConfig);
+});

@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { getTranslator, unstable_setRequestLocale } from "next-intl/server";
+// import { getTranslator, unstable_setRequestLocale } from "next-intl/server";
 import HeroSection from "./components/main-page/hero-section";
 import HomePageAboutSection from "./components/main-page/homepage-about-section";
 import { client } from "@/lib/contentful/client";
@@ -38,7 +38,7 @@ async function getContentfulContent(locale) {
 }
 
 export default async function Home({ params: { locale } }) {
-  unstable_setRequestLocale(locale);
+  // unstable_setRequestLocale(locale);
 
   const homepageAboutSection = (await getContentfulContent(locale))
     .homepageAboutSection[0].fields;
