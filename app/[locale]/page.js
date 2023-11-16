@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-// import { getTranslator, unstable_setRequestLocale } from "next-intl/server";
+import { unstable_setRequestLocale } from "next-intl/server";
 import HeroSection from "./components/main-page/hero-section";
 import HomePageAboutSection from "./components/main-page/homepage-about-section";
 import { client } from "@/lib/contentful/client";
@@ -8,6 +8,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import HomepageProjectsSection from "./components/main-page/homepage-projects-section";
 import HomepageNewsSection from "./components/main-page/homepage-news-section";
 import PartnersSection from "./components/main-page/partners-section";
+import locales from "..";
 
 async function getContentfulContent(locale) {
   const resHomepageAboutSection = await client.getEntries({
@@ -38,7 +39,7 @@ async function getContentfulContent(locale) {
 }
 
 export default async function Home({ params: { locale } }) {
-  // unstable_setRequestLocale(locale);
+  unstable_setRequestLocale(locale);
 
   const homepageAboutSection = (await getContentfulContent(locale))
     .homepageAboutSection[0].fields;
