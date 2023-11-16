@@ -20,6 +20,8 @@ export function generateStaticParams() {
 }
 
 export default function LocaleLayout({ children, params: { locale } }) {
+  const locale = useLocale();
+
   // Validate that the incoming `locale` parameter is valid
   const isValidLocale = locales.some((cur) => cur === locale);
   if (!isValidLocale) notFound();
