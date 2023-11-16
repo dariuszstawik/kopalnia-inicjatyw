@@ -3,14 +3,9 @@ const nextConfig = {
   images: {
     domains: ["localhost:3000", "images.ctfassets.net"],
   },
-
-  async rewrites() {
-    return [
-      {
-        source: "/",
-        destination: "/pl",
-      },
-    ];
+  i18n: {
+    locales: ["en", "pl"],
+    defaultLocale: "pl",
   },
 };
 
