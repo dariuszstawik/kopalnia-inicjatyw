@@ -15,10 +15,10 @@ async function getContentfulContent(locale) {
     locale: locale,
   });
 
-  const resNews = await client.getEntries({
-    content_type: "news",
-    locale: locale,
-  });
+  // const resNews = await client.getEntries({
+  //   content_type: "news",
+  //   locale: locale,
+  // });
 
   const resProjects = await client.getEntries({
     content_type: "project",
@@ -43,7 +43,7 @@ export default async function Home({ params: { locale } }) {
   const homepageAboutSection = (await getContentfulContent(locale))
     .homepageAboutSection[0].fields;
 
-  const newsPosts = (await getContentfulContent(locale)).news;
+  // const newsPosts = (await getContentfulContent(locale)).news;
 
   const projects = (await getContentfulContent(locale)).projects;
 
@@ -65,7 +65,7 @@ export default async function Home({ params: { locale } }) {
         {documentToReactComponents(homepageAboutSection.content)}
       </ParagraphWithImageOnTheLeft>
       <HomepageProjectsSection projects={projects} />
-      <HomepageNewsSection newsPosts={newsPosts} locale={locale} />
+      {/* <HomepageNewsSection newsPosts={newsPosts} locale={locale} /> */}
       <PartnersSection partners={partners} />
     </>
   );
